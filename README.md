@@ -38,6 +38,9 @@ Checkout any issue labeled `hacktoberfest` to start contributing.
 * Issues labeled `good-first-issue` are great for beginners.
 
 
+![Image 02-11-23 at 8 16 PM](https://github.com/Yashraj49/Steps/assets/88454884/d89039b3-300e-4b16-98c0-ddbbbd6516f0)
+
+
 <p align="center">
 <img src="https://user-images.githubusercontent.com/76922883/209883943-03fc014d-778a-429d-8817-79d5a665ba0d.jpg" width="200"/>
 <img src="https://user-images.githubusercontent.com/76922883/209884023-aca50258-92ee-4dcf-89db-5e69ee6d3076.jpg" width="200"/>
