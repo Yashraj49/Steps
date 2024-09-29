@@ -84,7 +84,7 @@
         },
         "ko" : {
           "stringUnit" : {
-            "state" : "translated",
+            "state" : "needs_review",
             "value" : "%i보"
           }
         }
@@ -613,6 +613,9 @@
           }
         }
       }
+    },
+    "Goal: %lld" : {
+
     },
     "Goals" : {
       "comment" : "Goals tab title",

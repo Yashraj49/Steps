@@ -9,29 +9,24 @@ import SwiftUI
 
 struct MainView: View {
     @StateObject var stepsViewModel = StepsViewModel()
-    
+
     var body: some View {
         TabView {
             HomeView(viewModel: stepsViewModel)
                 .tabItem {
                     Label(Constants.homeTab, systemImage: "house")
                 }
-            
+
             GoalView(viewModel: .init())
                 .tabItem {
                     Label(Constants.goalsTab, systemImage: "checklist")
                 }
-            
+
             AwardView(viewModel: stepsViewModel)
                 .tabItem {
                     Label(Constants.awardsTab, systemImage: "trophy")
                 }
-            
-            StepsCountView(viewModel: stepsViewModel)
-                .tabItem {
-                    Label(Constants.stepsTab, systemImage: "chart.bar")
-                }
-            
+
             SettingsView(stepsViewModel: stepsViewModel)
                 .tabItem {
                     Label(Constants.settingsTab, systemImage: "slider.vertical.3")

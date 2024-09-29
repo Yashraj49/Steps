@@ -9,14 +9,10 @@ import SwiftUI
 
 struct MountainView: View {
     @ObservedObject var viewModel: StepsViewModel
-    
+
     var body: some View {
         GeometryReader { geo in
             ZStack {
-                BackgroundView(stepsModel: viewModel)
-                    .aspectRatio(contentMode: .fill)
-                    .edgesIgnoringSafeArea(.all)
-                    .opacity(0.5)
 
                 VStack(spacing: 200) {
                     CircleView(opacity: viewModel.checkPointFourReached ? 1 : 0.2)
@@ -27,6 +23,11 @@ struct MountainView: View {
                 .offset(x: geo.size.width / 2 - 40)
                 .padding(.bottom, 100)
                 .padding(.top, 50)
+
+                BackgroundView(stepsModel: viewModel)
+                    .frame(width: geo.size.width, height: geo.size.height)
+                    .edgesIgnoringSafeArea(.all)
+                    .opacity(0.5)
             }
         }
     }

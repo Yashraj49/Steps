@@ -10,22 +10,26 @@ import Charts
 
 struct NewWeekStepsView: View {
     @ObservedObject var viewModel: StepsViewModel
-    
+
     var body: some View {
-        VStack(alignment: .leading) {
-            Text(Constants.weeklySteps)
+        VStack {
+            HStack {
+                Text(Constants.weeklySteps)
+                Spacer()
+            }
+            .padding(.horizontal)
 
             Chart {
                 RuleMark(y: .value(Constants.goal, viewModel.goal))
                     .foregroundStyle(.mint)
                     .lineStyle(StrokeStyle(lineWidth: 1, dash: [5]))
-                    .annotation(position: .topTrailing,  content: {
-                        Text("\(viewModel.goal)")
+                    .annotation(position: .automatic,  content: {
+                        Text("Goal: \(viewModel.goal)")
                             .font(.caption)
                             .foregroundColor(.secondary)
-                            .offset(x: -15)
+                            .padding()
                     })
-                
+
                 ForEach(viewModel.steps) { step in
                     BarMark(
                         x: .value(Constants.day, step.date, unit: .weekday),
@@ -36,35 +40,32 @@ struct NewWeekStepsView: View {
                         Text("\(step.count)")
                             .foregroundColor(.secondary)
                             .font(.caption)
-                        
                     })
                 }
             }
             .frame(height: 200)
             .padding()
-            .chartXAxis
-            {
+            .chartXAxis {
                 AxisMarks(values: viewModel.steps.map { $0.date}) { date in
                     AxisValueLabel(format:
-                            .dateTime.weekday(.narrow)).offset(x:-20)
-                    
+                            .dateTime.month(.twoDigits).day())
+                    .font(.caption2)
                 }
             }
             .chartYAxis(.hidden)
-            
+
             HStack {
                 Image(systemName: "line.diagonal")
                     .rotationEffect(Angle(degrees: 45))
                     .foregroundColor(.mint)
-                
+
                 Text(Constants.dailyGoal)
                     .foregroundColor(.secondary)
             }
             .font(.caption2)
             .padding(.leading)
-            
         }
-        .padding()
+        .frame(maxWidth: 500)
     }
 }
 
